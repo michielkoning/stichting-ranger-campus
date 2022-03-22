@@ -1,6 +1,6 @@
 ---
 pagination:
-  data: posts
+  data: pages
   size: 10
 layout: layout.njk
 title: Latest Posts
@@ -9,8 +9,8 @@ title: Latest Posts
 <ol>
   {%- for item in pagination.items %}
     <li>
-      <a href="/posts/{{ item.title.rendered | slug }}">
-        {{ item.title.rendered }}</li>
+      <a href="/{{ item.slug }}">
+        {{ item.title }}</li>
     </a>
   {% endfor -%}
 </ol>

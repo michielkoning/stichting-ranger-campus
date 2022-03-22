@@ -1,11 +1,11 @@
 ---
 pagination:
-    data: posts
+    data: pages
     size: 1
-    alias: posts
-permalink: "posts/{{ posts.title.rendered | slug }}/"
+    alias: post
+permalink: "{{ post.slug }}/"
 layout: layout.njk
 ---
 
-<h1>{{ posts.title.rendered }}</h1>
-{{posts.content.rendered | safe}}
+<h1>{{ post.title }}</h1>
+{{post.content | safe}}

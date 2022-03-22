@@ -1,7 +1,7 @@
 ---
-data: posts
+data: pages
 permalink: "feed.xml"
-eleventyExcludeFromCollections: true,
+eleventyExcludeFromCollections: true
 metadata:
   title: "My Blog about Boats"
   subtitle: "I am writing about my experiences as a naval navel-gazer."
@@ -23,13 +23,13 @@ metadata:
     <name>{{ metadata.author.name }}</name>
     <email>{{ metadata.author.email }}</email>
   </author>
-  {%- for item in posts %}
+  {%- for item in pages %}
   {% set absolutePostUrl %}{{ item.slug | slug | absoluteUrl(metadata.url) }}{% endset %}
   <entry>
-    <title>{{ item.title.rendered }}</title>
-    <updated>{{ item.modified }}</updated>
+    <title>{{ item.title }}</title>
+    <updated>{{ item.rssDate }}</updated>
     <link href="{{ absolutePostUrl }}"/>
-    <content type="html">{{ item.excerpt.rendered | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+    <content type="html">{{ item.excerpt | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
   </entry>
   {%- endfor %}
 </feed>
