@@ -1,4 +1,5 @@
 const AssetCache = require("@11ty/eleventy-cache-assets");
+const Image = require("@11ty/eleventy-img");
 
 /**
  * Get the articles from WordPress
@@ -19,6 +20,24 @@ async function fetchArticles() {
   }
 }
 
+const fetchImages = async (post) => {
+  if (post._embedded["wp:featuredmedia"]) {
+    if (post._embedded["wp:featuredmedia"]["0"].source_url) {
+      const url = post._embedded["wp:featuredmedia"]["0"].source_url;
+      const image = await Image(url, {
+        duration: "1d",
+        widths: [300],
+        formats: ["webp", "jpeg", "avif"],
+        outputDir: "./_site/img/",
+      });
+      return Image.generateHTML(image, {
+        alt: "A bomb ass nebula",
+      });
+    }
+  }
+  return null;
+};
+
 /**
  * Clean up and convert the API response for our needs
  */
@@ -28,6 +47,8 @@ async function processPosts(blogposts) {
       // remove HTML-Tags from the excerpt for meta description
       let metaDescription = post.excerpt.rendered.replace(/(<([^>]+)>)/gi, "");
       metaDescription = metaDescription.replace("\n", "");
+
+      const image = await fetchImages(post);
 
       // Return only the data that is needed for the actual output
       return await {
@@ -46,6 +67,7 @@ async function processPosts(blogposts) {
         excerpt: post.excerpt.rendered,
         content: post.content.rendered,
         categorySlugs: post.msme_categories_slugs,
+        image,
       };
     })
   );

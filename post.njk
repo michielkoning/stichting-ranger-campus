@@ -9,3 +9,6 @@ layout: layout.njk
 
 <h1>{{ post.title }}</h1>
 {{post.content | safe}}
+{% if post.image %}
+  {{post.image | safe}}
+{% endif %}

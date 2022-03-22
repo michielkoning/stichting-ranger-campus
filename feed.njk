@@ -27,7 +27,7 @@ metadata:
   {% set absolutePostUrl %}{{ item.slug | slug | absoluteUrl(metadata.url) }}{% endset %}
   <entry>
     <title>{{ item.title }}</title>
-    <updated>{{ item.modifiedDate }}</updated>
+    <updated>{{ item.rssDate }}</updated>
     <link href="{{ absolutePostUrl }}"/>
     <content type="html">{{ item.excerpt | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
   </entry>

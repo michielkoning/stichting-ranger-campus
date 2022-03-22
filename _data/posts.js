@@ -13,10 +13,11 @@ module.exports = async () => {
     if (post._embedded["wp:featuredmedia"]) {
       if (post._embedded["wp:featuredmedia"]["0"].source_url) {
         const url = post._embedded["wp:featuredmedia"]["0"].source_url;
-        await Image(url, {
+        const image = await Image(url, {
           widths: [300],
           formats: ["webp", "jpeg", "avif"],
         });
+        console.log(image);
       }
     }
   });
