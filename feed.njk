@@ -1,0 +1,35 @@
+---
+data: posts
+permalink: "feed.xml"
+eleventyExcludeFromCollections: true,
+metadata:
+  title: "My Blog about Boats"
+  subtitle: "I am writing about my experiences as a naval navel-gazer."
+  url: "https://example.com/"
+  feedUrl: "https://example.com/feed.xml"
+  author:
+    name: "Boaty McBoatFace"
+    email: "me@example.com"
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ metadata.title }}</title>
+  <subtitle>{{ metadata.subtitle }}</subtitle>
+  <link href="{{ metadata.feedUrl }}" rel="self"/>
+  <updated>{{ posts | getNewestCollectionItemDate }}</updated>
+  <link href="{{ metadata.url }}"/>
+  <id>{{ metadata.url }}</id>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+    <email>{{ metadata.author.email }}</email>
+  </author>
+  {%- for item in posts %}
+  {% set absolutePostUrl %}{{ item.slug | slug | absoluteUrl(metadata.url) }}{% endset %}
+  <entry>
+    <title>{{ item.title.rendered }}</title>
+    <updated>{{ item.modified }}</updated>
+    <link href="{{ absolutePostUrl }}"/>
+    <content type="html">{{ item.excerpt.rendered | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
+  </entry>
+  {%- endfor %}
+</feed>
