@@ -15,9 +15,13 @@
     "@11ty/eleventy-cache-assets": "^2.3.0",
     "@11ty/eleventy-img": "^2.0.0",
     "@11ty/eleventy-plugin-rss": "^1.1.2",
-    "node-fetch": "^2.6.7"
+    "eleventy-plugin-postcss": "^1.0.4",
+    "node-fetch": "^2.6.7",
+    "postcss-preset-env": "^7.4.3"
   },
   "dependencies": {
-    "@11ty/eleventy-fetch": "^3.0.0"
+    "@11ty/eleventy-fetch": "^3.0.0",
+    "clean-css": "^5.2.4",
+    "eleventy-plugin-pwa": "^1.0.8"
   }
 }

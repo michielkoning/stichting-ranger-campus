@@ -1,0 +1,65 @@
+{
+  "background_color": "#3367D6",
+  "description": "Weather forecast information",
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "512x512",
+      "src": "/images/icons-vector.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "sizes": "192x192",
+      "src": "/images/icons-192.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "512x512",
+      "src": "/images/icons-512.png",
+      "type": "image/png"
+    }
+  ],
+  "name": "Weather: Do I need an umbrella?",
+  "scope": "/",
+  "screenshots": [
+    {
+      "sizes": "540x720",
+      "src": "/images/screenshot1.png",
+      "type": "image/png"
+    },
+    {
+      "sizes": "540x720",
+      "src": "/images/screenshot2.jpg",
+      "type": "image/jpg"
+    }
+  ],
+  "short_name": "Weather",
+  "shortcuts": [
+    {
+      "description": "View weather information for today",
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "/images/today.png"
+        }
+      ],
+      "name": "How's weather today?",
+      "short_name": "Today",
+      "url": "/today?source=pwa"
+    },
+    {
+      "description": "View weather information for tomorrow",
+      "icons": [
+        {
+          "sizes": "192x192",
+          "src": "/images/tomorrow.png"
+        }
+      ],
+      "name": "How's weather tomorrow?",
+      "short_name": "Tomorrow",
+      "url": "/tomorrow?source=pwa"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "theme_color": "#3367D6"
+}

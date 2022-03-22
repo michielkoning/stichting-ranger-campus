@@ -1,0 +1,11 @@
+{
+  "plugins": {
+    "postcss-preset-env": {
+      "features": {
+        "custom-media-queries": true,
+        "media-query-ranges": true,
+        "nesting-rules": true
+      }
+    }
+  }
+}

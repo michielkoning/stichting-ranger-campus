@@ -16,7 +16,7 @@ metadata:
   <title>{{ metadata.title }}</title>
   <subtitle>{{ metadata.subtitle }}</subtitle>
   <link href="{{ metadata.feedUrl }}" rel="self"/>
-  <updated>{{ posts | getNewestCollectionItemDate }}</updated>
+  <updated>{{ pages | getNewestCollectionItemDate }}</updated>
   <link href="{{ metadata.url }}"/>
   <id>{{ metadata.url }}</id>
   <author>
@@ -27,7 +27,7 @@ metadata:
   {% set absolutePostUrl %}{{ item.slug | slug | absoluteUrl(metadata.url) }}{% endset %}
   <entry>
     <title>{{ item.title }}</title>
-    <updated>{{ item.rssDate }}</updated>
+    <updated>{{ item.modifiedDate }}</updated>
     <link href="{{ absolutePostUrl }}"/>
     <content type="html">{{ item.excerpt | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
   </entry>

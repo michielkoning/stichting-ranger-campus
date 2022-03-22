@@ -1,0 +1,5 @@
+{% set css %}
+{% include "css/links.css" %}
+{% include "css/typography.css" %}
+{% endset %}
+<style>{{ css | cssmin | safe }}</style>
